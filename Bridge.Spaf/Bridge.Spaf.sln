@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge.Spaf", "Bridge.Spaf\Bridge.Spaf.csproj", "{D455EF2D-1FB3-474D-809D-B2E0935DC888}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution ITems", "Solution ITems", "{06F235B9-782E-4C45-A176-02ADF38311C7}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\SpafApp.cs = Solution Items\SpafApp.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

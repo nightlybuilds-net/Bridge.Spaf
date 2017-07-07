@@ -46,6 +46,9 @@
     <Reference Include="Bridge.jQuery2, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Bridge.jQuery.2.9.3\lib\net40\Bridge.jQuery2.dll</HintPath>
     </Reference>
+    <Reference Include="Bridge.Messenger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Messenger.0.0.2\lib\net45\Bridge.Messenger.dll</HintPath>
+    </Reference>
     <Reference Include="Bridge.Navigation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Bridge.Navigation.0.1.5\lib\net45\Bridge.Navigation.dll</HintPath>
     </Reference>
