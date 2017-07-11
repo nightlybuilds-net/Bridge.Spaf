@@ -14,11 +14,32 @@ namespace Bridge.Spaf.Components
     /// <typeparam name="TH"></typeparam>
     public abstract class CollectionManager<T, TH> where TH : HTMLElement
     {
+        /// <summary>
+        /// Items collection
+        /// </summary>
         public readonly List<Tuple<T, TH>> Items = new List<Tuple<T, TH>>();
 
-        public abstract TH GenerateElement(T item);
-        public abstract void DomActionOnAdd(Tuple<T, TH> addedElement);
+        /// <summary>
+        /// Generate a HtmlElement from T item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        protected abstract TH GenerateElement(T item);
 
+        /// <summary>
+        /// Called when the new HTMLElement is generated.
+        /// Default is AppendChild to Container.
+        /// </summary>
+        /// <param name="addedElement"></param>
+        protected virtual void DomActionOnAdd(Tuple<T, TH> addedElement)
+        {
+            this.Container.AppendChild(addedElement.Item2);
+        }
+
+        /// <summary>
+        /// Container element for collection
+        /// </summary>
+        public abstract HTMLElement Container { get; }
 
         public virtual void AddRange(IEnumerable<T> items)
         {
@@ -41,7 +62,8 @@ namespace Bridge.Spaf.Components
             // remove all elements from dom
             foreach (var tuple in this.Items)
             {
-                tuple.Item2.Remove();
+                // cannot use tuple.Item2.Remove(); ** not supported on EDGE/IE **
+                this.Container.RemoveChild(tuple.Item2);
             }
 
             this.Items.Clear();
@@ -58,9 +80,8 @@ namespace Bridge.Spaf.Components
 
             var internalItem = this.Items.First(f => f.Item1.Equals(item));
 
-            // remove from dom
-            // todo fix for EDGE
-            internalItem.Item2.Remove();
+            // cannot use tuple.Item2.Remove(); ** not supported on EDGE/IE **
+            this.Container.RemoveChild(internalItem.Item2);
 
             var res = this.Items.Remove(internalItem);
 
