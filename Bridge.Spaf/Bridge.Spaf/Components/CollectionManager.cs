@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Bridge.Html5;
 
-namespace Bridge.Spaf.Components
+namespace Bridge.Spaf
 {
     /// <summary>
     /// Manage a collection of item
