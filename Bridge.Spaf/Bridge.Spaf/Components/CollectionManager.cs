@@ -11,27 +11,26 @@ namespace Bridge.Spaf
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TH"></typeparam>
-    public abstract class CollectionManager<T, TH> where TH : HTMLElement
+    public abstract class CollectionManager<T> 
     {
         /// <summary>
         /// Items collection
         /// </summary>
-        public readonly List<Tuple<T, TH>> Items = new List<Tuple<T, TH>>();
+        public readonly List<Tuple<T, HTMLElement>> Items = new List<Tuple<T, HTMLElement>>();
 
         /// <summary>
         /// Generate a HtmlElement from T item
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        protected abstract TH GenerateElement(T item);
+        protected abstract HTMLElement GenerateElement(T item);
 
         /// <summary>
         /// Called when the new HTMLElement is generated.
         /// Default is AppendChild to Container.
         /// </summary>
         /// <param name="addedElement"></param>
-        protected virtual void DomActionOnAdd(Tuple<T, TH> addedElement)
+        protected virtual void DomActionOnAdd(Tuple<T, HTMLElement> addedElement)
         {
             this.Container.AppendChild(addedElement.Item2);
         }
@@ -51,7 +50,7 @@ namespace Bridge.Spaf
 
         public virtual void Add(T item)
         {
-            var internalItem = new Tuple<T, TH>(item, this.GenerateElement(item));
+            var internalItem = new Tuple<T, HTMLElement>(item, this.GenerateElement(item));
             this.Items.Add(internalItem);
 
             this.DomActionOnAdd(internalItem);
@@ -102,7 +101,7 @@ namespace Bridge.Spaf
         }
 
 
-        public Tuple<T, TH> this[int index]
+        public Tuple<T, HTMLElement> this[int index]
         {
             get { return this.Items[index]; }
             set { this.Items[index] = value; }
