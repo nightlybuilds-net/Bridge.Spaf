@@ -1,14 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge.Spaf", "Bridge.Spaf\Bridge.Spaf.csproj", "{D455EF2D-1FB3-474D-809D-B2E0935DC888}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution ITems", "Solution ITems", "{06F235B9-782E-4C45-A176-02ADF38311C7}"
 	ProjectSection(SolutionItems) = preProject
+		Solution Items\CustomRoutesConfig.cs = Solution Items\CustomRoutesConfig.cs
 		Solution Items\SpafApp.cs = Solution Items\SpafApp.cs
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge.Spaf", "Bridge.Spaf\Bridge.Spaf.csproj", "{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,12 +17,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D455EF2D-1FB3-474D-809D-B2E0935DC888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D455EF2D-1FB3-474D-809D-B2E0935DC888}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D455EF2D-1FB3-474D-809D-B2E0935DC888}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D455EF2D-1FB3-474D-809D-B2E0935DC888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B716831B-58D9-4359-9632-4390370FC33E}
 	EndGlobalSection
 EndGlobal
