@@ -1,8 +1,11 @@
-﻿using Bridge.Ioc;
-using Bridge.Ioc.Abstract;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using Bridge;
+using Bridge.Ioc;
 using Bridge.Messenger;
-using Bridge.Navigation.Abstraction;
-using Bridge.Navigation.Impl;
+using Bridge.Navigation;
+using Bridge.Spaf.Attributes;
 
 namespace Bridge.Spaf
 {
@@ -13,10 +16,8 @@ namespace Bridge.Spaf
         public static void Main()
         {
             Container = new BridgeIoc();
-
-            ContainerConfig();
-
-            Container.Resolve<INavigator>().InitNavigation();
+            ContainerConfig(); // config container
+            Container.Resolve<INavigator>().InitNavigation(); // init navigation
 
         }
 
@@ -24,18 +25,21 @@ namespace Bridge.Spaf
         {
             // navigator
             Container.RegisterSingleInstance<INavigator, BridgeNavigatorWithRouting>();
-            //Container.Register<INavigatorConfigurator, YourExtendOf_BridgeNavigatorConfigBase>(); // todo
+            Container.Register<INavigatorConfigurator, CustomRoutesConfig>(); 
 
             // messenger
             Container.RegisterSingleInstance<IMessenger, Messenger.Messenger>();
 
-            // todo register your controllers, services, resources....
+            // viewmodels
+            RegisterAllViewModels();
+
+            // register custom resource, services..
 
         }
 
         #region PAGES IDS
         // static pages id
-        
+
 
         public static string HomeId => "home";
        
@@ -56,5 +60,26 @@ namespace Bridge.Spaf
 
 
         #endregion
+
+        /// <summary>
+        /// Register all types that end with "viewmodel".
+        /// You can register a viewmode as Singlr Instance adding "SingleInstanceAttribute" to the class
+        /// </summary>
+        private static void RegisterAllViewModels()
+        {
+            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes())
+                .Where(w => w.Name.ToLower().EndsWith("viewmodel")).ToList();
+
+            types.ForEach(f =>
+            {
+                var attributes = f.GetCustomAttributes(typeof(SingleInstanceAttribute), true);
+
+                if (attributes.Any())
+                    Container.RegisterSingleInstance(f);
+                else
+                    Container.Register(f);
+            });
+
+        }
     }
 }
