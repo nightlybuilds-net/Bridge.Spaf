@@ -10,7 +10,7 @@ namespace Bridge.Spaf
         /// Element id of the page 
         /// </summary>
         /// <returns></returns>
-        protected abstract string ElementId();
+        public abstract string ElementId();
 
         protected dom.HTMLElement PageNode => _pageNode ?? (this._pageNode = dom.document.getElementById(ElementId()));
 
