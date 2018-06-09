@@ -12,7 +12,7 @@ namespace Bridge.Spaf
         /// <returns></returns>
         public abstract string ElementId();
 
-        protected dom.HTMLElement PageNode => _pageNode ?? (this._pageNode = dom.document.getElementById(ElementId()));
+        public dom.HTMLElement PageNode => _pageNode ?? (this._pageNode = dom.document.getElementById(ElementId()));
 
         public void ApplyBindings()
         {
