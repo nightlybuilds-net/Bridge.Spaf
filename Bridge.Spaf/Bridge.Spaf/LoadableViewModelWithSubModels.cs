@@ -9,13 +9,13 @@ namespace Bridge.Spaf
         public override void OnLoad(Dictionary<string, object> parameters)
         {
             base.OnLoad(parameters);
-            this.Partials?.ForEach(f=> f.Init());
+            this.Partials?.ForEach(f=> f.Init(parameters));
         }
 
         public override void OnLeave()
         {
-            base.OnLeave();
             this.Partials?.ForEach(f=>f.DeInit());
+            base.OnLeave();
         }
     }
 }
