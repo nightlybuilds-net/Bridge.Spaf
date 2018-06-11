@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Bridge.jQuery2;
 
 namespace Bridge.Spaf
@@ -7,7 +8,11 @@ namespace Bridge.Spaf
     {
         protected abstract string HtmlUrl { get; }
 
-        public void Init()
+        /// <summary>
+        /// Init partial
+        /// </summary>
+        /// <param name="parameters">data for init the partials</param>
+        public virtual void Init(Dictionary<string,object> parameters)
         {
             jQuery.Select($"#{this.ElementId()}").Load(HtmlUrl, null, (o, s, arg3) =>
             {
@@ -15,7 +20,7 @@ namespace Bridge.Spaf
             });
         }
 
-        public void DeInit()
+        public virtual void DeInit()
         {
             base.RemoveBindings();
         }
@@ -23,7 +28,7 @@ namespace Bridge.Spaf
 
     public interface IViewModelLifeCycle
     {
-        void Init();
+        void Init(Dictionary<string, object> parameters);
         void DeInit();
     }
 }
