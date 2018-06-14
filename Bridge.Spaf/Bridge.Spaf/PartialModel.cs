@@ -42,6 +42,11 @@ namespace Bridge.Spaf
 
         public virtual void DeInit()
         {
+            // check if ko contains this node
+            if (this._partialElement == null) return;
+            var data = knockout.ko.dataFor(this._partialElement);
+            if (data == null) return;
+            
             knockout.ko.removeNode(this._partialElement);
         }
     }
