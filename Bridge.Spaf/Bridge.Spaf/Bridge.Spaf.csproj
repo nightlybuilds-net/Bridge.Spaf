@@ -81,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\SingleInstanceAttribute.cs" />
-    <Compile Include="LoadableViewModelWithSubModels.cs" />
     <Compile Include="PartialModel.cs" />
     <Compile Include="LoadableViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
