@@ -25,6 +25,8 @@ namespace Bridge.Spaf
         {
             // navigator
             Container.RegisterSingleInstance<INavigator, BridgeNavigatorWithRouting>();
+            Container.RegisterSingleInstance<IBrowserHistoryManager, QueryParameterNavigationHistory>();
+//            Container.RegisterSingleInstance<IBrowserHistoryManager, ComplexObjectNavigationHistory>(); // if you don't need query parameters
             Container.Register<INavigatorConfigurator, CustomRoutesConfig>(); 
 
             // messenger
