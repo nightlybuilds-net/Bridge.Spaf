@@ -55,7 +55,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Bridge.Navigation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Bridge.Navigation.1.2.3\lib\net45\Bridge.Navigation.dll</HintPath>
+      <HintPath>..\packages\Bridge.Navigation.18.1.0\lib\net45\Bridge.Navigation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.Core, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
