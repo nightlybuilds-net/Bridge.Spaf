@@ -34,20 +34,20 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bridge, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Bridge.Core.17.0.0\lib\net40\Bridge.dll</HintPath>
+    <Reference Include="Bridge, Version=17.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Bridge.Core.17.2.0\lib\net40\Bridge.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Bridge.Html5, Version=17.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Bridge.Html5.17.0.0\lib\net40\Bridge.Html5.dll</HintPath>
+    <Reference Include="Bridge.Html5, Version=17.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Bridge.Html5.17.2.0\lib\net40\Bridge.Html5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Bridge.Ioc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Bridge.Ioc.1.0.4\lib\net45\Bridge.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Bridge.jQuery2, Version=2.14.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Bridge.jQuery.2.14.0\lib\net40\Bridge.jQuery2.dll</HintPath>
+    <Reference Include="Bridge.jQuery2, Version=2.16.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Bridge.jQuery.2.16.0\lib\net40\Bridge.jQuery2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Bridge.Messenger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -58,24 +58,24 @@
       <HintPath>..\packages\Bridge.Navigation.18.1.0\lib\net45\Bridge.Navigation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.Core, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.Core.1.5.6685\lib\net40\Retyped.Core.dll</HintPath>
+    <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.dom, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.dom.2.8.6685\lib\net40\Retyped.dom.dll</HintPath>
+      <HintPath>..\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.es5, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.es5.2.8.6712\lib\net40\Retyped.es5.dll</HintPath>
+      <HintPath>..\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.knockout, Version=3.4.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.knockout.3.4.6685\lib\net40\Retyped.knockout.dll</HintPath>
+      <HintPath>..\packages\Retyped.knockout.3.4.6733\lib\net40\Retyped.knockout.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Retyped.scripthost, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.scripthost.2.8.6685\lib\net40\Retyped.scripthost.dll</HintPath>
+      <HintPath>..\packages\Retyped.scripthost.2.8.6733\lib\net40\Retyped.scripthost.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -91,11 +91,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Bridge.Min.17.0.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.0.0\build\Bridge.Min.targets')" />
+  <Import Project="..\packages\Bridge.Min.17.2.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.2.0\build\Bridge.Min.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Bridge.Min.17.0.0\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.0.0\build\Bridge.Min.targets'))" />
+    <Error Condition="!Exists('..\packages\Bridge.Min.17.2.0\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.2.0\build\Bridge.Min.targets'))" />
   </Target>
 </Project>
