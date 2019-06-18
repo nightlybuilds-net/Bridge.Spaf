@@ -1,18 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <NoStdLib>true</NoStdLib>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B5FFFB1-4DE7-410B-A409-5060068860FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bridge.Spaf</RootNamespace>
-    <AssemblyName>Bridge.Spaf</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Bridge.Navigation</RootNamespace>
+    <AssemblyName>Bridge.Navigation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +26,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,8 +34,32 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Abstraction\IAmLoadable.cs" />
+    <Compile Include="Abstraction\IBrowserHistoryManager.cs" />
+    <Compile Include="Abstraction\INavigator.cs" />
+    <Compile Include="Abstraction\INavigatorConfigurator.cs" />
+    <Compile Include="Abstraction\IPageDescriptor.cs" />
+    <Compile Include="Impl\ComplexObjectNavigationHistory.cs" />
+    <Compile Include="Impl\QueryParameterNavigationHistory.cs" />
+    <Compile Include="Model\UrlDescriptor.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Impl\BridgeNavigator.cs" />
+    <Compile Include="Impl\BridgeNavigatorConfigBase.cs" />
+    <Compile Include="Impl\BridgeNavigatorWithRouting.cs" />
+    <Compile Include="Impl\PageDescriptor.cs" />
+    <Compile Include="NavigationUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bridge.json" />
+    <None Include="Bridge\bridge.json" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bridge\output\" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Bridge, Version=17.2.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Bridge.Core.17.2.0\lib\net40\Bridge.dll</HintPath>
@@ -42,53 +69,10 @@
       <HintPath>..\packages\Bridge.Html5.17.2.0\lib\net40\Bridge.Html5.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Bridge.Ioc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Bridge.Ioc.1.0.4\lib\net45\Bridge.Ioc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Bridge.jQuery2, Version=2.16.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Bridge.jQuery.2.16.0\lib\net40\Bridge.jQuery2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Retyped.dom, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Retyped.es5, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Retyped.knockout, Version=3.4.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.knockout.3.4.6733\lib\net40\Retyped.knockout.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Retyped.scripthost, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Retyped.scripthost.2.8.6733\lib\net40\Retyped.scripthost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Attributes\SingleInstanceAttribute.cs" />
-    <Compile Include="Messenger\Messenger.cs" />
-    <Compile Include="Messenger\IMessenger.cs" />
-    <Compile Include="PartialModel.cs" />
-    <Compile Include="LoadableViewModel.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bridge.json" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bridge.Navigation\Bridge.Navigation.csproj">
-      <Project>{0b5fffb1-4de7-410b-a409-5060068860fc}</Project>
-      <Name>Bridge.Navigation</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Bridge.Min.17.2.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.2.0\build\Bridge.Min.targets')" />

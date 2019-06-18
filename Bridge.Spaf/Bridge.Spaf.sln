@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution ITems", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge.Spaf", "Bridge.Spaf\Bridge.Spaf.csproj", "{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge.Navigation", "Bridge.Navigation\Bridge.Navigation.csproj", "{0B5FFFB1-4DE7-410B-A409-5060068860FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53EA7CB1-430A-4EE0-BD55-3A8399742AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5FFFB1-4DE7-410B-A409-5060068860FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5FFFB1-4DE7-410B-A409-5060068860FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5FFFB1-4DE7-410B-A409-5060068860FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5FFFB1-4DE7-410B-A409-5060068860FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
