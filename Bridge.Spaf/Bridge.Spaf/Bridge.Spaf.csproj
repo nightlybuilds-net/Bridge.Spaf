@@ -50,10 +50,6 @@
       <HintPath>..\packages\Bridge.jQuery.2.16.0\lib\net40\Bridge.jQuery2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Bridge.Messenger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Bridge.Messenger.1.0.1\lib\net45\Bridge.Messenger.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Bridge.Navigation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Bridge.Navigation.18.1.0\lib\net45\Bridge.Navigation.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\SingleInstanceAttribute.cs" />
+    <Compile Include="Messenger\Messenger.cs" />
+    <Compile Include="Messenger\IMessenger.cs" />
     <Compile Include="PartialModel.cs" />
     <Compile Include="LoadableViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
