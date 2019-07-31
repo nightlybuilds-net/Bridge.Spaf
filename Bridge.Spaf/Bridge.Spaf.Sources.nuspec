@@ -42,6 +42,6 @@
     <file src="Bridge.Spaf\PartialModel.cs" target="content\Spaf" />
     <file src="Bridge.Spaf\ViewModelBase.cs" target="content\Spaf" />
     <file src="Solution Items\CustomRoutesConfig.cs" target="content" />
-    <file src="Solution Items\content\SpafApp.cs" target="content\" />
+    <file src="Solution Items\SpafApp.cs" target="content\" />
   </files>
 </package>
