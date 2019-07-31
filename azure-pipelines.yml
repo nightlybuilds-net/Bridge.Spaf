@@ -15,6 +15,20 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your powershell commands here.
+           
+      # Use the environment variables input below to pass secret variables to this script.
+      
+      $year= Get-Date –format yy;
+      $month= (Get-Date).month;
+      Write-Host "##vso[task.setvariable variable=version]$year.$month.$(Build.BuildId)"
+
+
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -27,7 +41,16 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: NuGetCommand@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'pack'
+    packagesToPack: 'Bridge.Spaf/Bridge.Spaf.Sources.nuspec'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'version'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '005528d4-8639-4091-8a03-c3749454b522'
