@@ -42,3 +42,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop-spaf'
     publishLocation: 'Container'
+    
