@@ -1,0 +1,45 @@
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+name: $(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+trigger:
+- develop
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+  
+steps:
+
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: 'Bridge.Spaf/Bridge.Spaf.Sources.nuspec'
+    versioningScheme: 'byBuildNumber'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop-spaf'
+    publishLocation: 'Container'
+    

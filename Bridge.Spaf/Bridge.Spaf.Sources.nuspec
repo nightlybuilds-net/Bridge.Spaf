@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Bridge.Spaf.Sources</id>
+    <version>$version$</version>
+    <title>Bridge.Spaf.Sources</title>
+    <authors>Marco Milani</authors>
+    <owners>Marco Milani</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/markjackmilian/Bridge.Spaf</projectUrl>
+    <description>Sharpie Single Page Application Framework.</description>
+    <summary>Sharpie Single Page Application Framework.</summary>
+    <tags>bridge.net, bridge.spaf, spaf</tags>
+    <dependencies>
+      <dependency id="Bridge" version="17.2.0" />
+      <dependency id="Retyped" version="1.6.6733" />
+      <dependency id="Retyped.knockout" version="3.4.6733" />
+      <dependency id="Bridge.Html5" version="17.2.0" />
+      <dependency id="Bridge.jQuery" version="2.20.0" />
+      <dependency id="Bridge.Ioc.Sources" version="19.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Bridge.Spaf\Attributes\SingleInstanceAttribute.cs" target="content\Spaf\Attributes" />
+    <file src="Bridge.Spaf\Messenger\IMessenger.cs" target="content\Spaf\Messenger" />
+    <file src="Bridge.Spaf\Messenger\Messenger.cs" target="content\Spaf\Messenger" />
+    <file src="Bridge.Navigation\Abstraction\IAmLoadable.cs" target="content\Spaf\Navigation\Abstraction" />
+    <file src="Bridge.Navigation\Abstraction\IBrowserHistoryManager.cs" target="content\Spaf\Navigation\Abstraction" />
+    <file src="Bridge.Navigation\Abstraction\INavigator.cs" target="content\Spaf\Navigation\Abstraction" />
+    <file src="Bridge.Navigation\Abstraction\INavigatorConfigurator.cs" target="content\Spaf\Navigation\Abstraction" />
+    <file src="Bridge.Navigation\Abstraction\IPageDescriptor.cs" target="content\Spaf\Navigation\Abstraction" />
+    <file src="Bridge.Navigation\Impl\BridgeNavigator.cs" target="content\Spaf\Navigation\Impl" />
+    <file src="Bridge.Navigation\Impl\BridgeNavigatorConfigBase.cs" target="content\Spaf\Navigation\Impl" />
+    <file src="Bridge.Navigation\Impl\BridgeNavigatorWithRouting.cs" target="content\Spaf\Navigation\Impl" />
+    <file src="Bridge.Navigation\Impl\ComplexObjectNavigationHistory.cs" target="content\Spaf\Navigation\Impl" />
+    <file src="Bridge.Navigation\Impl\PageDescriptor.cs" target="content\Spaf\Navigation\Impl" />
+    <file src="Bridge.Navigation\Impl\QueryParameterNavigationHistory.cs" target="content\Spaf\Navigation\Impl" />
+    <file src="Bridge.Navigation\Model\UrlDescriptor.cs" target="content\Spaf\Navigation\Model" />
+    <file src="Bridge.Navigation\NavigationUtility.cs" target="content\Spaf\Navigation" />
+    <file src="Bridge.Navigation\Utility.cs" target="content\Spaf\Navigation" />
+    <file src="Bridge.Spaf\LoadableViewModel.cs" target="content\Spaf" />
+    <file src="Bridge.Spaf\PartialModel.cs" target="content\Spaf" />
+    <file src="Bridge.Spaf\ViewModelBase.cs" target="content\Spaf" />
+    <file src="Solution Items\CustomRoutesConfig.cs" target="content" />
+    <file src="Solution Items\SpafApp.cs" target="content\" />
+  </files>
+</package>
