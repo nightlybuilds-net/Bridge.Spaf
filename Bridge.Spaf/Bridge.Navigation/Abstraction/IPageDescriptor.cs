@@ -55,5 +55,10 @@ namespace Bridge.Navigation
         /// If true dependenciesscript will be loaded sequentially instead then parallel
         /// </summary>
         bool SequentialDependenciesScriptLoad { get; set; }
+
+        /// <summary>
+        /// If true add css to show page content as fullscreen
+        /// </summary>
+        bool FullScreen { get; set; }
     }
 }
