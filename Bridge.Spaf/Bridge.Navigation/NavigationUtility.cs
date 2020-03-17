@@ -29,13 +29,13 @@ namespace Bridge.Navigation
                 throw new Exception($"No parameter with key {paramKey} found!");
 
             var value = parameters[paramKey];
+
+            if (!(value is string)) return (T) value;
             
             var parseMethod = typeof(T).GetMethod("Parse", new Type[] { typeof(string) } );
 
             if (parseMethod != null)
-            {
                 return (T)parseMethod.Invoke(null, new object[] { value });
-            }
 
             return (T) value;
         }
