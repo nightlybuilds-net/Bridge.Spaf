@@ -33,4 +33,4 @@ jobs:
       run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
     
     - name: Create Nuget
-      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec
+      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version 2.1.0
