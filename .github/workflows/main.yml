@@ -5,8 +5,8 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ github_actions ]
+   release:
+    types: [created]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,10 +33,14 @@ jobs:
       run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
     
     - name: Create Nuget
-      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version 2.1.0
+      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version ${GITHUB_REF##*/}
+    
+    - name: Push Nuget
+      run: nuget push Bridge.Spaf.Sources.${GITHUB_REF##*/}.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json
+
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: bridge.spaf
-        path: Bridge.Spaf.Sources.2.1.0.nupkg
+        path: Bridge.Spaf.Sources.${GITHUB_REF##*/}.nupkg
