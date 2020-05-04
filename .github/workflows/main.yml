@@ -34,3 +34,9 @@ jobs:
     
     - name: Create Nuget
       run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version 2.1.0
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: bridge.spaf
+        path: Bridge.Spaf\Bridge.Spaf
