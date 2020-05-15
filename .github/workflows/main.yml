@@ -20,27 +20,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
-     
-    - name: Restore NuGet Packages
-      run: nuget restore Bridge.Spaf/Bridge.Spaf.sln
-  
-    - name: Setup MSBuild Path
-      uses: warrenbuckley/Setup-MSBuild@v1
-
-    - name: Build
-      run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
-    
-    - name: Create Nuget
-      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec  -Version ${GITHUB_REF}
-    
-    #- name: Push Nuget
-    #  run: nuget push Bridge.Spaf.Sources.${GITHUB_REF##*/}.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json
-
-    
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: bridge.spaf
-        path: Bridge.Spaf.Sources.${GITHUB_REF}.nupkg
+    - name: Hello world
+      run: echo Hello world ${GITHUB_REF}!
+      
+   
