@@ -5,10 +5,8 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-   #release:
-    #types: [created]
-    push:
-      branches: [ master ]
+   release:
+    types: [created]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,17 +19,28 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-   
-    - id: compute_tag
-      uses: markjackmilian/compute-tag@master
-      with:
-        github_token: ${{ github.token }}
-        version_type: patch
-  
-    - name: Get tag
-      uses: dawidd6/action-get-tag@v1.0.0
     
-    - name: Hello world
-      run: echo Hello world ${{ steps.tag.outputs.tag }}
-      
-   
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+     
+    - name: Restore NuGet Packages
+      run: nuget restore Bridge.Spaf/Bridge.Spaf.sln
+  
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+
+    - name: Build
+      run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
+    
+    - name: Create Nuget
+      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version 3000.1.0
+    
+    - name: Push Nuget
+      run: nuget push Bridge.Spaf.Sources.3000.1.0.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json
+
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: bridge.spaf
+        path: Bridge.Spaf.Sources.3000.1.0.nupkg
