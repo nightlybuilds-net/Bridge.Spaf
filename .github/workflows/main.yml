@@ -23,6 +23,6 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Hello world
-      run: echo "Hello world ${GITHUB_REF##*/}"
+      run: echo Hello world ${GITHUB_REF##*/}
       
    
