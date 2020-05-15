@@ -27,8 +27,11 @@ jobs:
       with:
         github_token: ${{ github.token }}
         version_type: patch
+  
+    - name: Get tag
+      uses: dawidd6/action-get-tag@v1.0.0
     
     - name: Hello world
-      run: echo Hello world ${{ steps.compute_tag.outputs.previous_tag }}
+      run: echo Hello world ${{ steps.tag.outputs.tag }}
       
    
