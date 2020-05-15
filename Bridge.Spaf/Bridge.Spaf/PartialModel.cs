@@ -30,6 +30,7 @@ namespace Bridge.Spaf
 
             jQuery.Get(this.HtmlUrl, null, (o, s, arg3) =>
             {
+                this.OnBeforeBinding(parameters);
                 this._partialElement = new dom.HTMLDivElement
                 {
                     innerHTML = o.ToString()
@@ -37,8 +38,21 @@ namespace Bridge.Spaf
                 var node = dom.document.getElementById(ElementId());
                 node.appendChild(this._partialElement);
                 knockout.ko.applyBindings(this, this._partialElement);
+                this.OnBindingDone(parameters);
             });
         }
+        
+        /// <summary>
+        /// Called when html is loaded but ko is not binded
+        /// </summary>
+        /// <param name="parameters"></param>
+        public virtual void OnBeforeBinding(Dictionary<string,object> parameters){}
+        
+        /// <summary>
+        /// Called when html is loaded and ko is binded 
+        /// </summary>
+        /// <param name="parameters"></param>
+        public virtual void OnBindingDone(Dictionary<string,object> parameters){}
 
         public virtual void DeInit()
         {
