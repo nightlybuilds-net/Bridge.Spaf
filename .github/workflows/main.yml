@@ -21,8 +21,14 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+   
+    - id: compute_tag
+      uses: markjackmilian/compute-tag@master
+      with:
+        github_token: ${{ github.token }}
+        version_type: patch
     
     - name: Hello world
-      run: echo Hello world ${GITHUB_REF##*/}
+      run: echo Hello world ${{ steps.compute_tag.outputs.previous_tag }}
       
    
