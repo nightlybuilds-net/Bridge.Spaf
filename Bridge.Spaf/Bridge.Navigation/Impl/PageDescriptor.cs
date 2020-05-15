@@ -22,6 +22,8 @@ namespace Bridge.Navigation
         public Func<string> RedirectRules { get; set; }
         public Func<bool> AutoEnableSpafAnchors { get; set; }
         public Func<IEnumerable<string>> DependenciesScripts { get; set; }
+       
+        public bool FullScreen { get; set; }
     }
 
     

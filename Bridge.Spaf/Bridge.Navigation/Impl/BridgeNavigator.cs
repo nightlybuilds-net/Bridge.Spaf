@@ -93,6 +93,12 @@ namespace Bridge.Navigation
                 
                 // prepare page
                 page.PreparePage?.Invoke();
+                
+                // show as fullscreen
+                if (page.FullScreen)
+                {
+                    this.ShowAsFullScreen(body);
+                }
 
                 // auto enable spaf anchors
                 if (!this.Configuration.DisableAutoSpafAnchorsOnNavigate)
@@ -114,6 +120,21 @@ namespace Bridge.Navigation
                 }
                 
             }); 
+        }
+
+        /// <summary>
+        /// Content page is the first child of body
+        /// </summary>
+        /// <param name="body"></param>
+        private void ShowAsFullScreen(jQuery body)
+        {
+            var theDiv = body.Children().First();
+            theDiv.Css("width" , "100%");
+            theDiv.Css("height" , "100%");
+            theDiv.Css("left" , "0");
+            theDiv.Css("top" , "0");
+            theDiv.Css("z-index" , "999999");
+            theDiv.Css("position" , "absolute");
         }
 
         public event EventHandler<IAmLoadable> OnNavigated;
