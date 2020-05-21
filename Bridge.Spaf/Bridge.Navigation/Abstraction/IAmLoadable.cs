@@ -14,5 +14,17 @@ namespace Bridge.Navigation
         /// Called when controller is leaved for another 
         /// </summary>
         void OnLeave();
+
+        /// <summary>
+        /// Called when html is loaded but ko is not binded
+        /// </summary>
+        /// <param name="parameters"></param>
+        void OnBeforeBinding(Dictionary<string, object> parameters);
+
+        /// <summary>
+        /// Called when html is loaded and ko is binded 
+        /// </summary>
+        /// <param name="parameters"></param>
+        void OnBindingDone(Dictionary<string, object> parameters);
     }
 }
