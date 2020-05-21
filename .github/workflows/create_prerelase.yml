@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    #branches: [ master ]
+    branches: [ develop ]
 env:
     next_mode: preminor
  
@@ -26,17 +26,17 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
      
-    - name: Restore NuGet Packages
-      run: nuget restore Bridge.Spaf/Bridge.Spaf.sln
+    #- name: Restore NuGet Packages
+    #  run: nuget restore Bridge.Spaf/Bridge.Spaf.sln
   
-    - name: Setup MSBuild Path
-      uses: warrenbuckley/Setup-MSBuild@v1
+   # - name: Setup MSBuild Path
+   #   uses: warrenbuckley/Setup-MSBuild@v1
 
 
-    - name: Build
-      run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
+    #- name: Build
+    #  run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
     
-     - id: compute_tag
+    - id: compute_tag
       uses: markjackmilian/compute-tag@master
       with:
         github_token: ${{ github.token }}
