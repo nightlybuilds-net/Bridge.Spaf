@@ -21,11 +21,26 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+    
     - id: compute_tag
       uses: markjackmilian/compute-tag@master
       with:
         github_token: ${{ github.token }}
         version_type: patch
+    
+    - name: Create Nuget
+      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version ${{ steps.compute_tag.outputs.next_tag }}
+    
+    - name: Push Nuget
+      run: nuget push Bridge.Spaf.Sources.${{ steps.compute_tag.outputs.next_tag }}.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: bridge.spaf
+        path: Bridge.Spaf.Sources.${{ steps.compute_tag.outputs.next_tag }}.nupkg
     
     - name: create release
       uses: actions/create-release@v1
