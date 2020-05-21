@@ -29,12 +29,12 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore Bridge.Spaf/Bridge.Spaf.sln
   
-    - name: Setup MSBuild Path
-      uses: warrenbuckley/Setup-MSBuild@v1
+   # - name: Setup MSBuild Path
+   #   uses: warrenbuckley/Setup-MSBuild@v1
 
 
-    - name: Build
-      run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
+    #- name: Build
+    #  run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
     
     - id: compute_tag
       uses: markjackmilian/compute-tag@master
