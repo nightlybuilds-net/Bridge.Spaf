@@ -112,7 +112,10 @@ namespace Bridge.Navigation
                 {
                     // load new controller
                     var controller = page.PageController();
+                    
+                    controller.OnBeforeBinding(parameters);
                     controller.OnLoad(parameters);
+                    controller.OnBindingDone(parameters);
 
                     _actualController = controller;
                     

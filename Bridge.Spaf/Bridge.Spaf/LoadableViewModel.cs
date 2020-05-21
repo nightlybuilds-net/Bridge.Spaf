@@ -18,5 +18,13 @@ namespace Bridge.Spaf
             this.Partials?.ForEach(f=>f.DeInit());
             base.RemoveBindings();
         }
+
+        public virtual void OnBeforeBinding(Dictionary<string, object> parameters)
+        {
+        }
+
+        public virtual void OnBindingDone(Dictionary<string, object> parameters)
+        {
+        }
     }
 }
