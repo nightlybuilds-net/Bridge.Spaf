@@ -33,14 +33,14 @@ jobs:
       run: msbuild Bridge.Spaf/Bridge.Spaf.sln /p:Configuration=Release
     
     - name: Create Nuget
-      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version ${GITHUB_REF##*/}
+      run: nuget pack Bridge.Spaf/Bridge.Spaf.Sources.nuspec -Version 3000.1.0
     
     - name: Push Nuget
-      run: nuget push Bridge.Spaf.Sources.${GITHUB_REF##*/}.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json
+      run: nuget push Bridge.Spaf.Sources.3000.1.0.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json
 
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: bridge.spaf
-        path: Bridge.Spaf.Sources.${GITHUB_REF##*/}.nupkg
+        path: Bridge.Spaf.Sources.3000.1.0.nupkg
