@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Bridge.Spaf.Sources</id>
-    <version>3000.1.0</version>
+    <version>$version$</version>
     <title>Bridge.Spaf.Sources</title>
     <authors>Marco Milani</authors>
     <owners>Marco Milani</owners>
