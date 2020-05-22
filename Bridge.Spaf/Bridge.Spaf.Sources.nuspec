@@ -17,7 +17,8 @@
       <dependency id="Retyped.knockout" version="3.4.6733" />
       <dependency id="Bridge.Html5" version="17.2.0" />
       <dependency id="Bridge.jQuery" version="2.20.0" />
-      <dependency id="Bridge.Ioc.Sources" version="19.0.1" />
+      <dependency id="Bridge.Ioc.Sources" version="2019.8.2.3" />
+      <dependency id="Bridge.Newtonsoft.Json" version="1.17.0" />
     </dependencies>
   </metadata>
   <files>
