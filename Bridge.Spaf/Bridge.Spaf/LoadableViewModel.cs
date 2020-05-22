@@ -7,7 +7,7 @@ namespace Bridge.Spaf
     {
         protected List<IViewModelLifeCycle> Partials { get; } = new List<IViewModelLifeCycle>();
 
-        public virtual void OnLoad(Dictionary<string, object> parameters)
+        public void OnLoad(Dictionary<string, object> parameters)
         {
             base.ApplyBindings();
             this.Partials?.ForEach(f=> f.Init(parameters));
