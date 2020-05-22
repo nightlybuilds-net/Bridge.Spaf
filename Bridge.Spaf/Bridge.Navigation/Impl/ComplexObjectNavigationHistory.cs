@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Bridge.Html5;
 using Bridge.Navigation.Model;
+using Newtonsoft.Json;
 
 namespace Bridge.Navigation
 {
@@ -12,7 +13,7 @@ namespace Bridge.Navigation
 
             Window.History.PushState(null, string.Empty,
                 parameters != null
-                    ? $"{baseUrl}={Global.Btoa(JSON.Stringify(parameters))}" : baseUrl);
+                    ? $"{baseUrl}={Global.Btoa(JsonConvert.SerializeObject(parameters))}" : baseUrl);
         }
 
         public UrlDescriptor ParseUrl()
@@ -39,7 +40,7 @@ namespace Bridge.Navigation
             if (string.IsNullOrEmpty(parameters)) return res; // no parameters
 
             var decoded = Global.Atob(parameters);
-            var deserialized = JSON.Parse<Dictionary<string, object>>(decoded);
+            var deserialized = JsonConvert.DeserializeObject<Dictionary<string, object>>(decoded);
 
             res.Parameters = deserialized;
             
